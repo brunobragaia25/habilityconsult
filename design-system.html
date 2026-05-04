@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hability Consult - Design System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --brand-primary: #F15330;
+            --brand-light: #f37c4a;
+            --brand-lighter: #fabe9e;
+            --brand-lightest: #fde0d0;
+            --background-dark: #ac3314;
+            --gray-light: #d9d9d9;
+            --gray-medium: #e8e8e8;
+            --gray-darker: #c8c8c8;
+            --text-primary: #1e1e1e;
+            --text-light: #4a4a4a;
+            --white: #ffffff;
+            --border-light: #f6986c;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .design-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            border-bottom: 3px solid var(--brand-primary);
+            padding-bottom: 15px;
+        }
+
+        .subsection-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: var(--brand-primary);
+        }
+
+        /* COLOR SYSTEM */
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .color-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .color-swatch {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .color-info {
+            padding: 15px;
+            background: #f9f9f9;
+            font-size: 12px;
+        }
+
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .color-code {
+            color: var(--text-light);
+            font-family: monospace;
+        }
+
+        /* TYPOGRAPHY */
+        .typography-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .typography-example {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid var(--brand-primary);
+        }
+
+        .typography-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .typography-h1 {
+            font-size: 60px;
+            font-weight: 900;
+            line-height: 61.6px;
+            font-family: 'Linear', 'Inter', sans-serif;
+        }
+
+        .typography-h2 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.1;
+            font-family: 'Linear', 'Inter', sans-serif;
+        }
+
+        .typography-h3 {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Grotesk', 'Inter', sans-serif;
+        }
+
+        .typography-body {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.43;
+            font-family: 'Grotesk', 'Inter', sans-serif;
+        }
+
+        .typography-small {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.43;
+            font-family: 'Grotesk', 'Inter', sans-serif;
+        }
+
+        /* SPACING */
+        .spacing-example {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .spacing-box {
+            text-align: center;
+        }
+
+        .spacing-visual {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-light));
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .spacing-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* COMPONENTS */
+        .component-preview {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* BUTTONS */
+        .btn {
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-family: 'Linear', 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--brand-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            border: 1px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            opacity: 0.8;
+        }
+
+        .btn-secondary {
+            background: var(--brand-light);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-tertiary {
+            background: var(--brand-lighter);
+            color: white;
+        }
+
+        .btn-tertiary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-light {
+            background: var(--gray-medium);
+            border: 1px solid var(--gray-darker);
+            color: var(--text-primary);
+        }
+
+        .btn-light:hover {
+            opacity: 0.8;
+        }
+
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* CARDS */
+        .card {
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 28px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .card-icon {
+            width: 74px;
+            height: 74px;
+            border: 1px solid rgba(250, 190, 158, 0.4);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-icon::after {
+            content: '';
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0px 11px 21.2px -5px rgba(241, 90, 41, 0.2);
+            position: absolute;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--brand-primary);
+            font-family: 'Grotesk', 'Inter', sans-serif;
+        }
+
+        .card-description {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: 'Grotesk', 'Inter', sans-serif;
+        }
+
+        /* ORANGE CARD (BPO Structure) */
+        .card-orange {
+            background: var(--brand-primary);
+            color: white;
+            border: none;
+            min-height: 450px;
+        }
+
+        .card-orange .card-icon {
+            border: none;
+        }
+
+        .card-orange .card-icon::after {
+            background: var(--brand-lightest);
+        }
+
+        .card-orange .card-title {
+            color: white;
+        }
+
+        .card-orange .card-description {
+            color: white;
+        }
+
+        .card-orange-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-orange-item {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            font-size: 14px;
+            font-family: 'Grotesk', 'Inter', sans-serif;
+        }
+
+        .card-orange-checkmark {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-primary);
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .card-orange-btn {
+            border: 1px solid white;
+            color: white;
+            border-radius: 9999px;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-family: 'Grotesk', 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .card-orange-btn:hover {
+            background: white;
+            color: var(--brand-primary);
+        }
+
+        /* FOOTER */
+        .footer-section {
+            background: var(--background-dark);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .footer-link {
+            font-size: 16px;
+            font-family: 'Grotesk', 'Inter', sans-serif;
+            font-weight: 300;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 0.8;
+        }
+
+        .footer-heading {
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Grotesk', 'Inter', sans-serif;
+            color: var(--border-light);
+            margin-bottom: 40px;
+        }
+
+        /* HERO SECTIONS */
+        .hero-home {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-light) 100%);
+            padding: 180px 20px 100px;
+            color: white;
+        }
+
+        .hero-bpo-contabil {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-light) 100%);
+            padding: 120px 20px 100px;
+            color: white;
+        }
+
+        .hero-visao-geral {
+            background: var(--gray-light);
+            padding: 210px 20px 128px;
+        }
+
+        .hero-title {
+            font-size: 60px;
+            font-weight: 900;
+            font-family: 'Linear', 'Inter', sans-serif;
+            margin-bottom: 40px;
+            line-height: 61.6px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 500;
+            font-family: 'Linear', 'Inter', sans-serif;
+            line-height: 1.65;
+            margin-bottom: 40px;
+        }
+
+        /* CHECKMARK */
+        .checkmark-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: 'Grotesk', 'Inter', sans-serif;
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            background: var(--brand-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* SECTION DIVIDERS */
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 20px 0;
+        }
+
+        /* GRID LAYOUTS */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-3, .grid-5 {
+                grid-template-columns: 1fr;
+            }
+
+            .typography-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container">
+        <!-- HEADER -->
+        <div class="design-section">
+            <h1 style="font-size: 48px; font-weight: 700; margin-bottom: 10px;">Hability Consult - Design System</h1>
+            <p style="font-size: 16px; color: var(--text-light); font-family: 'Grotesk', sans-serif;">
+                Complete design system for Home, BPO Contábil, and Visão Geral pages.
+                Built with Tailwind CSS, Framer Motion, and Next.js.
+            </p>
+        </div>
+
+        <!-- COLOR SYSTEM -->
+        <div class="design-section">
+            <h2 class="section-title">Color Palette</h2>
+
+            <p style="margin-bottom: 20px; color: var(--text-light);">Primary Brand Colors</p>
+            <div class="colors-grid">
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #F15330;">Primary</div>
+                    <div class="color-info">
+                        <div class="color-name">Brand Primary</div>
+                        <div class="color-code">#F15330</div>
+                    </div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #f37c4a;">Light</div>
+                    <div class="color-info">
+                        <div class="color-name">Brand Light</div>
+                        <div class="color-code">#f37c4a</div>
+                    </div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #fabe9e;">Lighter</div>
+                    <div class="color-info">
+                        <div class="color-name">Brand Lighter</div>
+                        <div class="color-code">#fabe9e</div>
+                    </div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #fde0d0;">Lightest</div>
+                    <div class="color-info">
+                        <div class="color-name">Brand Lightest</div>
+                        <div class="color-code">#fde0d0</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="margin-top: 30px; margin-bottom: 20px; color: var(--text-light);">Neutral Colors</p>
+            <div class="colors-grid">
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #ac3314; color: white;">Dark</div>
+                    <div class="color-info">
+                        <div class="color-name">Background Dark</div>
+                        <div class="color-code">#ac3314</div>
+                    </div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #d9d9d9; color: #333;">Light Gray</div>
+                    <div class="color-info">
+                        <div class="color-name">Gray Light</div>
+                        <div class="color-code">#d9d9d9</div>
+                    </div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #e8e8e8; color: #333;">Medium</div>
+                    <div class="color-info">
+                        <div class="color-name">Gray Medium</div>
+                        <div class="color-code">#e8e8e8</div>
+                    </div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #1e1e1e;">Text</div>
+                    <div class="color-info">
+                        <div class="color-name">Text Primary</div>
+                        <div class="color-code">#1e1e1e</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TYPOGRAPHY -->
+        <div class="design-section">
+            <h2 class="section-title">Typography</h2>
+
+            <div class="subsection-title">Heading Styles</div>
+            <div class="typography-grid">
+                <div class="typography-example">
+                    <div class="typography-label">H1 - Linear Black</div>
+                    <div class="typography-h1">Heading One</div>
+                    <div style="font-size: 12px; color: var(--text-light); margin-top: 10px;">
+                        60px | 900 | Linear | 61.6px line height
+                    </div>
+                </div>
+                <div class="typography-example">
+                    <div class="typography-label">H2 - Linear Medium</div>
+                    <div class="typography-h2">Heading Two</div>
+                    <div style="font-size: 12px; color: var(--text-light); margin-top: 10px;">
+                        48px | 600 | Linear | 1.1 line height
+                    </div>
+                </div>
+                <div class="typography-example">
+                    <div class="typography-label">H3 - Grotesk Bold</div>
+                    <div class="typography-h3">Heading Three</div>
+                    <div style="font-size: 12px; color: var(--text-light); margin-top: 10px;">
+                        28px | 700 | Grotesk
+                    </div>
+                </div>
+                <div class="typography-example">
+                    <div class="typography-label">H4 - Grotesk Semibold</div>
+                    <div style="font-size: 20px; font-weight: 600; font-family: 'Grotesk', sans-serif;">Heading Four</div>
+                    <div style="font-size: 12px; color: var(--text-light); margin-top: 10px;">
+                        20px | 600 | Grotesk
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection-title">Body Text Styles</div>
+            <div class="typography-grid">
+                <div class="typography-example">
+                    <div class="typography-label">Body Medium</div>
+                    <div class="typography-body">Regular body text for main content</div>
+                    <div style="font-size: 12px; color: var(--text-light); margin-top: 10px;">
+                        16px | 500 | Grotesk | 1.43 line height
+                    </div>
+                </div>
+                <div class="typography-example">
+                    <div class="typography-label">Body Light</div>
+                    <div style="font-size: 16px; font-weight: 300; font-family: 'Grotesk', sans-serif;">Light body text for secondary content</div>
+                    <div style="font-size: 12px; color: var(--text-light); margin-top: 10px;">
+                        16px | 300 | Grotesk
+                    </div>
+                </div>
+                <div class="typography-example">
+                    <div class="typography-label">Small Text</div>
+                    <div class="typography-small">Small footer or caption text</div>
+                    <div style="font-size: 12px; color: var(--text-light); margin-top: 10px;">
+                        14px | 400 | Grotesk | 1.43 line height
+                    </div>
+                </div>
+                <div class="typography-example">
+                    <div class="typography-label">Extra Small</div>
+                    <div style="font-size: 12px; font-weight: 400; font-family: 'Grotesk', sans-serif;">Very small text for disclaimers</div>
+                    <div style="font-size: 12px; color: var(--text-light); margin-top: 10px;">
+                        12px | 400 | Grotesk
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPACING -->
+        <div class="design-section">
+            <h2 class="section-title">Spacing Scale</h2>
+            <p style="color: var(--text-light); margin-bottom: 20px;">All spacing uses 4px base unit</p>
+
+            <div class="spacing-example">
+                <div class="spacing-box">
+                    <div class="spacing-visual" style="width: 20px; height: 20px;"></div>
+                    <div class="spacing-label">20px (5x)</div>
+                </div>
+                <div class="spacing-box">
+                    <div class="spacing-visual" style="width: 40px; height: 40px;"></div>
+                    <div class="spacing-label">40px (10x)</div>
+                </div>
+                <div class="spacing-box">
+                    <div class="spacing-visual" style="width: 60px; height: 60px;"></div>
+                    <div class="spacing-label">60px (15x)</div>
+                </div>
+                <div class="spacing-box">
+                    <div class="spacing-visual" style="width: 80px; height: 80px;"></div>
+                    <div class="spacing-label">80px (20x)</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid var(--brand-primary);">
+                <p style="font-size: 14px; color: var(--text-light); font-family: monospace;">
+                    Common spacing values:<br>
+                    Gap: 12px, 16px, 20px, 28px, 40px, 60px, 80px<br>
+                    Padding: 8px, 12px, 16px, 20px, 32px, 40px, 60px, 80px<br>
+                    Margin: 20px, 30px, 40px, 80px
+                </p>
+            </div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="design-section">
+            <h2 class="section-title">Buttons</h2>
+
+            <div class="subsection-title">Primary Buttons</div>
+            <div class="component-preview" style="background: linear-gradient(135deg, var(--brand-primary), var(--brand-light)); gap: 20px;">
+                <button class="btn btn-primary">
+                    Solicitar diagnóstico
+                    <div class="btn-icon" style="background: white; color: var(--brand-primary);">→</div>
+                </button>
+                <button class="btn btn-outline">
+                    Ver áreas do BPO
+                    <div class="btn-icon" style="background: white; color: var(--brand-primary);">→</div>
+                </button>
+            </div>
+
+            <div class="subsection-title">Secondary Buttons</div>
+            <div class="component-preview">
+                <button class="btn btn-light">
+                    <span>Solicitar diagnóstico</span>
+                    <div class="btn-icon" style="background: var(--gray-medium); color: #333;">→</div>
+                </button>
+                <button class="btn btn-light">
+                    <span>Ver áreas do BPO</span>
+                    <div class="btn-icon" style="background: var(--gray-medium); color: #333;">→</div>
+                </button>
+            </div>
+
+            <div class="subsection-title">BPO Page Buttons</div>
+            <div class="component-preview">
+                <button class="btn" style="border: 1px solid white; color: white; background: transparent;">
+                    Solicitar diagnóstico
+                    <div class="btn-icon" style="background: white; color: var(--brand-primary);">→</div>
+                </button>
+                <button class="btn btn-secondary">
+                    Ver áreas do BPO
+                    <div class="btn-icon" style="background: white; color: var(--brand-primary);">→</div>
+                </button>
+                <button class="btn btn-tertiary">
+                    Geral
+                    <div class="btn-icon" style="background: #f15a29; color: white;">→</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- CARDS -->
+        <div class="design-section">
+            <h2 class="section-title">Cards</h2>
+
+            <div class="subsection-title">Benefit Cards</div>
+            <div class="grid-3">
+                <div class="card">
+                    <div>
+                        <div class="card-icon"></div>
+                        <h3 class="card-title">Independente de ERP</h3>
+                    </div>
+                    <p class="card-description">Atuamos no seu sistema atual ou via Domínio.</p>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="card-icon"></div>
+                        <h3 class="card-title">Fechamento com padrão</h3>
+                    </div>
+                    <p class="card-description">Conciliações, evidências e rastreabilidade.</p>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="card-icon"></div>
+                        <h3 class="card-title">Previsibilidade</h3>
+                    </div>
+                    <p class="card-description">Calendário, responsabilidades e entregáveis claros.</p>
+                </div>
+            </div>
+
+            <div class="subsection-title">BPO Structure Cards</div>
+            <div class="grid-3">
+                <div class="card card-orange">
+                    <div>
+                        <div class="card-icon"></div>
+                        <h3 class="card-title">Contábil</h3>
+                    </div>
+                    <p class="card-description">Fechamento mensal, conciliações, demonstrações e trilha de auditoria.</p>
+                    <div class="card-orange-list">
+                        <div class="card-orange-item">
+                            <span class="card-orange-checkmark">✓</span>
+                            <span>Conciliações e revisões</span>
+                        </div>
+                        <div class="card-orange-item">
+                            <span class="card-orange-checkmark">✓</span>
+                            <span>DRE, Balanço e relatórios</span>
+                        </div>
+                        <div class="card-orange-item">
+                            <span class="card-orange-checkmark">✓</span>
+                            <span>Padronização de lançamentos</span>
+                        </div>
+                    </div>
+                    <button class="card-orange-btn">Saiba mais</button>
+                </div>
+                <div class="card card-orange">
+                    <div>
+                        <div class="card-icon"></div>
+                        <h3 class="card-title">Fiscal</h3>
+                    </div>
+                    <p class="card-description">Apuração de tributos e obrigações acessórias com consistência e conferência.</p>
+                    <div class="card-orange-list">
+                        <div class="card-orange-item">
+                            <span class="card-orange-checkmark">✓</span>
+                            <span>Registro de cadastros e regras</span>
+                        </div>
+                        <div class="card-orange-item">
+                            <span class="card-orange-checkmark">✓</span>
+                            <span>Apuração e validação</span>
+                        </div>
+                        <div class="card-orange-item">
+                            <span class="card-orange-checkmark">✓</span>
+                            <span>Redução de risco fiscal</span>
+                        </div>
+                    </div>
+                    <button class="card-orange-btn">Saiba mais</button>
+                </div>
+                <div class="card card-orange">
+                    <div>
+                        <div class="card-icon"></div>
+                        <h3 class="card-title">Trabalhista</h3>
+                    </div>
+                    <p class="card-description">Folha de pagamento, encargos e eventos trabalhistas com governança.</p>
+                    <div class="card-orange-list">
+                        <div class="card-orange-item">
+                            <span class="card-orange-checkmark">✓</span>
+                            <span>Processamento de folha</span>
+                        </div>
+                        <div class="card-orange-item">
+                            <span class="card-orange-checkmark">✓</span>
+                            <span>Eventos eSocial</span>
+                        </div>
+                        <div class="card-orange-item">
+                            <span class="card-orange-checkmark">✓</span>
+                            <span>Conferência e controle</span>
+                        </div>
+                    </div>
+                    <button class="card-orange-btn">Saiba mais</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTIONS -->
+        <div class="design-section">
+            <h2 class="section-title">Page Sections</h2>
+
+            <div class="subsection-title">Hero - Home Page</div>
+            <div class="hero-home">
+                <div style="max-width: 1280px; margin: 0 auto;">
+                    <h1 class="hero-title">
+                        Gestão que melhora<br>
+                        <span style="color: #fef0ef;">sua empresa</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Contabilidade, fiscal e trabalhista integrados — tudo que você precisa para rodar bem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="subsection-title">Hero - BPO Contábil</div>
+            <div class="hero-bpo-contabil">
+                <div style="max-width: 1280px; margin: 0 auto;">
+                    <h1 class="hero-title">
+                        Sua contabilidade<br>
+                        <span style="color: #fef0ef;">finalmente organizada</span>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="subsection-title">Hero - Visão Geral</div>
+            <div class="hero-visao-geral">
+                <div style="max-width: 1280px; margin: 0 auto; color: white;">
+                    <h1 class="hero-title">
+                        Fechamento todo mês virando<br>
+                        <span style="color: var(--brand-primary);">correria? Isso não é inevitável.</span><br>
+                        <span style="color: var(--brand-primary);">É falta de método.</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="design-section">
+            <h2 class="section-title">Footer Component</h2>
+            <div class="footer-section" style="border-radius: 12px; overflow: hidden;">
+                <div style="max-width: 1280px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 40px;">
+                        <div>
+                            <div class="footer-heading">Institucional</div>
+                            <div class="footer-link">Quem somos</div>
+                            <div class="footer-link">Trabalhe Conosco</div>
+                            <div class="footer-link">LGPD e Privacidade</div>
+                        </div>
+                        <div>
+                            <div class="footer-heading">Soluções</div>
+                            <div class="footer-link">Consultoria ERP Sankhya</div>
+                            <div class="footer-link">BPO Contábil Completo</div>
+                            <div class="footer-link">Hability Labs</div>
+                            <div class="footer-link">Reforma Tributária 2026</div>
+                        </div>
+                        <div>
+                            <div class="footer-heading">Aplicativos</div>
+                            <div class="footer-link">App Conferência</div>
+                            <div class="footer-link">App Inventário</div>
+                            <div class="footer-link">App Produção</div>
+                            <div class="footer-link">App Força de Vendas</div>
+                        </div>
+                        <div>
+                            <div class="footer-heading">Whatsapp + Sankhya</div>
+                            <div class="footer-link">PowerWhats</div>
+                            <div class="footer-link">PowerChats</div>
+                        </div>
+                        <div>
+                            <div class="footer-heading">Contato</div>
+                            <div class="footer-link">comercial@habilityconsult.com.br</div>
+                            <div class="footer-link">+55 11 99999 9999</div>
+                            <div class="footer-link">+55 11 99999 9999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE LAYOUTS -->
+        <div class="design-section">
+            <h2 class="section-title">Complete Page Layouts</h2>
+
+            <div class="subsection-title">Home Page Structure</div>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid var(--brand-primary); font-family: monospace; font-size: 12px;">
+                <div>Navigation Bar (Fixed)</div>
+                <div>↓</div>
+                <div>Hero Section (Gradient)</div>
+                <div>↓</div>
+                <div>Services Grid (3 cards)</div>
+                <div>↓</div>
+                <div>About Section</div>
+                <div>↓</div>
+                <div>Solutions Cards Grid</div>
+                <div>↓</div>
+                <div>FAQ Accordion</div>
+                <div>↓</div>
+                <div>CTA Section</div>
+                <div>↓</div>
+                <div>Footer</div>
+            </div>
+
+            <div class="subsection-title">BPO Contábil Page Structure</div>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid var(--brand-primary); font-family: monospace; font-size: 12px;">
+                <div>Navigation Bar (Fixed)</div>
+                <div>↓</div>
+                <div>Hero + Form Section</div>
+                <div>↓</div>
+                <div>Benefits Grid (3 cards)</div>
+                <div>↓</div>
+                <div>Included Section</div>
+                <div>↓</div>
+                <div>For Whom Section</div>
+                <div>↓</div>
+                <div>Deliverables Section</div>
+                <div>↓</div>
+                <div>FAQ Accordion</div>
+                <div>↓</div>
+                <div>CTA Section</div>
+                <div>↓</div>
+                <div>Footer</div>
+            </div>
+
+            <div class="subsection-title">Visão Geral Page Structure</div>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid var(--brand-primary); font-family: monospace; font-size: 12px;">
+                <div>Navigation Bar (Fixed)</div>
+                <div>↓</div>
+                <div>Hero Section (Gray)</div>
+                <div>↓</div>
+                <div>Description Text</div>
+                <div>↓</div>
+                <div>Benefits Cards (3)</div>
+                <div>↓</div>
+                <div>Compliance Section</div>
+                <div>↓</div>
+                <div>Dashboard Section</div>
+                <div>↓</div>
+                <div>Governance Section</div>
+                <div>↓</div>
+                <div>Structure Section (Orange Cards)</div>
+                <div>↓</div>
+                <div>CTA Section</div>
+                <div>↓</div>
+                <div>Footer</div>
+            </div>
+        </div>
+
+        <!-- SPACING SYSTEM -->
+        <div class="design-section">
+            <h2 class="section-title">Component Spacing Reference</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 15px; color: var(--brand-primary);">Hero Sections</h3>
+                    <div style="font-size: 12px; font-family: monospace; line-height: 1.8; color: var(--text-light);">
+                        Home Hero: pt-[180px] pb-[100px]<br>
+                        BPO Hero: pt-[120px] pb-[100px]<br>
+                        Visão Geral Hero: pt-[210px] pb-[128px]
+                    </div>
+                </div>
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 15px; color: var(--brand-primary);">Section Gaps</h3>
+                    <div style="font-size: 12px; font-family: monospace; line-height: 1.8; color: var(--text-light);">
+                        Container vertical: gap-[60px]<br>
+                        Card grids: gap-[20px]<br>
+                        Button groups: gap-[12px]<br>
+                        List items: gap-[16px] or gap-[20px]
+                    </div>
+                </div>
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 15px; color: var(--brand-primary);">Section Padding</h3>
+                    <div style="font-size: 12px; font-family: monospace; line-height: 1.8; color: var(--text-light);">
+                        Page sections: py-[80px] or py-[40px]<br>
+                        Card padding: p-[40px] or p-[32px]<br>
+                        Button padding: px-[20px] py-[12px]<br>
+                        Container padding: px-[20px]
+                    </div>
+                </div>
+                <div style="padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 15px; color: var(--brand-primary);">Border Radius</h3>
+                    <div style="font-size: 12px; font-family: monospace; line-height: 1.8; color: var(--text-light);">
+                        Large cards: rounded-[28px]<br>
+                        Medium cards: rounded-[16px]<br>
+                        Small buttons: rounded-[12px]<br>
+                        Icon boxes: rounded-[8px] or rounded-[20px]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER REFERENCE -->
+        <div class="design-section">
+            <h2 class="section-title">Implementation Notes</h2>
+            <div style="padding: 20px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid var(--brand-primary);">
+                <p style="margin-bottom: 15px; color: var(--text-primary); font-weight: 600;">Framework & Libraries</p>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; color: var(--text-light); line-height: 1.8;">
+                    <li>• Framework: Next.js 14+ with App Router</li>
+                    <li>• Styling: Tailwind CSS v3+ with arbitrary values</li>
+                    <li>• Animations: Framer Motion</li>
+                    <li>• Components: React functional components with TypeScript</li>
+                    <li>• Fixed navbar with z-50 positioning</li>
+                    <li>• Dropdown menus with 200ms delay to prevent flickering</li>
+                    <li>• Accordion with AnimatePresence for smooth transitions</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
