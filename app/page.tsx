@@ -175,7 +175,7 @@ export default function Home() {
               >
                 Ver Consultoria ERP
                 <div className="bg-white rounded w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <img alt="" src="/chevron-down-white.svg" className="w-4 h-4" />
+                  <img alt="" src="/chevron-down-black.svg" className="w-4 h-4" />
                 </div>
               </motion.button>
 
@@ -187,7 +187,7 @@ export default function Home() {
               >
                 Ver BPO Contábil
                 <div className="bg-white rounded w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <img alt="" src="/chevron-down-white.svg" className="w-4 h-4" />
+                  <img alt="" src="/chevron-down-black.svg" className="w-4 h-4" />
                 </div>
               </motion.button>
 
