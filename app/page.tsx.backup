@@ -1,0 +1,307 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
+import { useState } from 'react'
+import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
+
+const ASSETS = {
+  frame148: '/mulher-CTA.png',
+  frame149: '/mulher-CTA.png',
+  frame150: '/mulher-CTA.png',
+  frame151: '/mulher-CTA.png',
+  testimonialQuoteStart: '/aspas-icon.svg',
+  testimonialQuoteEnd: '/aspas-2-icon.svg',
+  serviceCardBg1: '/BPO Completo-foto.png',
+  serviceCardBg2: '/Consultoria-ERP-foto.png',
+  serviceCardBg3: '/Hability Labs-foto.png',
+  servicesEllipse: '/astherisc-icon.svg',
+  servicesIcon1: '/servicos-icon.svg',
+  servicesIcon2: '/calendar.svg',
+  servicesIcon3: '/timer-30.svg',
+  industriesIcon1: '/industrial-icon.svg',
+  industriesIcon2: '/distribuicao-icon.svg',
+  industriesIcon3: '/servicos-icon.svg',
+  circlePlus: '/circle-infinite-hability.svg',
+}
+
+export default function Home() {
+  const [testimonialIdx, setTestimonialIdx] = useState(0)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(0)
+
+  const testimonials = [
+    {
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      author: 'Bruno Bragaia',
+      role: 'Diretor de Operações • Indústria'
+    },
+    {
+      text: 'Aliquam erat volutpat. Sed do eiusmod tempor incididunt ut labore.',
+      author: 'Maria Silva',
+      role: 'CFO • Distribuição'
+    }
+  ]
+
+  const services = [
+    { title: 'Consultoria ERP Sankhya', desc: 'Sustentação, melhorias e projetos em compras, vendas, financeiro, produção e WMS.', bg: ASSETS.serviceCardBg2 },
+    { title: 'BPO Contábil Completo', desc: 'Fechamento contábil, fiscal e trabalhista com calendário, trilha de auditoria e evidências.', bg: ASSETS.serviceCardBg1 },
+    { title: 'Hability Labs', desc: 'Apps de conferência, inventário, produção e força de vendas integrados ao Sankhya.', bg: ASSETS.serviceCardBg3 }
+  ]
+
+  const industries = [
+    { title: 'Indústria', icon: ASSETS.industriesIcon1 },
+    { title: 'Distribuição', icon: ASSETS.industriesIcon2 },
+    { title: 'Serviços', icon: ASSETS.industriesIcon3 }
+  ]
+
+  return (
+    <div className="bg-white w-full">
+      {/* NAVIGATION BAR */}
+      <motion.div
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="fixed top-0 left-0 right-0 z-50"
+      >
+        <div className="max-w-7xl mx-auto">
+          <NavBar />
+        </div>
+      </motion.div>
+
+      {/* HERO SECTION */}
+      <section
+        className="relative min-h-screen w-full flex justify-center items-center pt-40 pb-20 overflow-hidden"
+        style={{
+          backgroundImage: 'url(/background-hero-consult.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative max-w-[1280px] mx-auto px-5 z-10 w-full flex items-center"
+        >
+          <div className="flex flex-col gap-14 w-full max-w-2xl">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-1.5 bg-white rounded-full px-4 py-1 w-fit"
+            >
+              <img alt="" src="/astherisc-icon.svg" className="w-6 h-6" />
+              <span className="text-xs font-grotesk font-medium text-grey-800 uppercase tracking-[1.32px]">
+                ERP SANKHYA • BPO CONTÁBIL • HABILITY LABS
+              </span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6"
+            >
+              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight font-grotesk w-full max-w-2xl">
+                ERP travado. Fechamento atrasado. O problema tem nome{' '}
+                <span style={{ color: '#fabe9e' }} className="font-bold">
+                  — e tem solução.
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p className="text-base lg:text-lg text-white leading-relaxed max-w-2xl font-grotesk font-light">
+                ERP e contabilidade desalinhados geram retrabalho, fechamentos caóticos e decisões cegas. A Hability resolve nas duas frentes: Consultoria ERP Sankhya (compras, vendas, financeiro, produção, WMS e integrações) e BPO Contábil completo — com processo, governança e rastreabilidade.
+              </p>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex flex-wrap gap-3 w-fit"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="border-2 border-white text-white font-grotesk font-light text-sm px-3 py-3 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2.5"
+              >
+                Ver Consultoria ERP
+                <div className="bg-white rounded w-5 h-5 flex items-center justify-center flex-shrink-0">
+                  <img alt="" src="/chevron-down-black.svg" className="w-4 h-4" />
+                </div>
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{ backgroundColor: '#f37c4a' }}
+                className="text-white font-grotesk font-light text-sm px-3 py-3 rounded-lg flex items-center gap-2.5"
+              >
+                Ver BPO Contábil
+                <div className="bg-white rounded w-5 h-5 flex items-center justify-center flex-shrink-0">
+                  <img alt="" src="/chevron-down-black.svg" className="w-4 h-4" />
+                </div>
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{ backgroundColor: '#fabe9e' }}
+                className="text-grey-600 font-grotesk font-light text-sm px-3 py-3 rounded-lg flex items-center gap-2.5"
+              >
+                Ver Hability Labs
+                <div style={{ backgroundColor: '#f15a29' }} className="rounded w-5 h-5 flex items-center justify-center flex-shrink-0">
+                  <img alt="" src="/chevron-down-white.svg" className="w-4 h-4" />
+                </div>
+              </motion.button>
+            </motion.div>
+
+            {/* Social Proof */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex items-center gap-3 pt-4"
+            >
+              <div className="flex items-center pr-4">
+                <img alt="" src={ASSETS.frame148} className="w-11 h-11 rounded-full border-2 border-white" />
+                <img alt="" src={ASSETS.frame149} className="w-11 h-11 rounded-full border-2 border-white -ml-4" />
+                <img alt="" src={ASSETS.frame150} className="w-11 h-11 rounded-full border-2 border-white -ml-4" />
+                <img alt="" src={ASSETS.frame151} className="w-11 h-11 rounded-full border-2 border-white -ml-4" />
+              </div>
+              <div>
+                <p className="font-bold text-white text-sm font-grotesk">+ de 100 clientes</p>
+                <p className="text-white text-xs font-grotesk font-light">atendidos em todo Brasil</p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* INFINITE SCROLL SECTION */}
+      <section className="w-full border-t border-b border-[#c8c8c8] bg-white overflow-hidden">
+        <div className="flex gap-0 items-stretch">
+          {[...Array(4)].map((_, rowIdx) => (
+            <motion.div
+              key={rowIdx}
+              className="flex gap-[40px] items-center px-[20px] py-[28px] whitespace-nowrap flex-1"
+              animate={{ x: [0, -2000] }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+            >
+              {[...Array(3)].map((_, itemIdx) => (
+                <div key={itemIdx} className="flex gap-[40px] items-center flex-shrink-0">
+                  <span className="font-grotesk font-medium text-[12px] leading-[1.43] text-[#a0a0a0] tracking-[1.32px]">ERP SANKHYA</span>
+                  <img src="/star-marquee.svg" alt="" className="w-[12px] h-[12px] flex-shrink-0" />
+                  <span className="font-grotesk font-medium text-[12px] leading-[1.43] text-[#a0a0a0] tracking-[1.32px]">BPO CONTÁBIL</span>
+                  <img src="/star-marquee.svg" alt="" className="w-[12px] h-[12px] flex-shrink-0" />
+                  <span className="font-grotesk font-medium text-[12px] leading-[1.43] text-[#a0a0a0] tracking-[1.32px]">HABILITY LABS</span>
+                  <img src="/star-marquee.svg" alt="" className="w-[12px] h-[12px] flex-shrink-0" />
+                </div>
+              ))}
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICES SECTION */}
+      <section className="bg-white w-full flex justify-center">
+        <div className="flex flex-col gap-[40px] items-start justify-center pb-[40px] pt-[80px] px-[20px] w-full max-w-[1280px]">
+          <div className="flex flex-col items-center w-full gap-[20px]">
+            <div className="flex flex-col gap-[20px] items-center w-full max-w-[852px] mx-auto text-center">
+              <h2 className="font-grotesk font-bold text-[48px] text-grey-900">
+                Três frentes. Um parceiro.
+              </h2>
+              <p className="font-grotesk font-light text-[16px] text-grey-700">
+                Consultoria ERP, BPO Contábil e aplicativos integrados. Tudo alinhado para resultados reais.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[20px] w-full">
+            {services.map((service, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                onMouseEnter={() => setHoveredCard(idx)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className="relative rounded-[20px] overflow-hidden cursor-pointer group"
+              >
+                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${service.bg})` }}>
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
+                </div>
+                <div className="relative p-[32px] h-[400px] flex flex-col justify-end gap-[16px]">
+                  <h3 className="font-grotesk font-bold text-[24px] text-white leading-tight">
+                    {service.title}
+                  </h3>
+                  <p className="font-grotesk font-light text-[14px] text-white/80">
+                    {service.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="bg-white w-full flex justify-center py-[80px] px-[20px]">
+        <div className="max-w-[800px] w-full flex flex-col gap-[40px] items-center">
+          <div className="flex flex-col items-center gap-[20px] text-center">
+            <h2 className="font-grotesk font-bold text-[48px] text-grey-900">
+              O que dizem sobre nós
+            </h2>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-full bg-[#f9f9f9] rounded-[20px] p-[40px] flex flex-col gap-[24px]"
+          >
+            <div className="flex gap-[8px]">
+              <img src={ASSETS.testimonialQuoteStart} alt="" className="w-[24px] h-[24px]" />
+              <img src={ASSETS.testimonialQuoteEnd} alt="" className="w-[24px] h-[24px]" />
+            </div>
+            <p className="font-grotesk font-light text-[18px] text-grey-900 leading-relaxed">
+              {testimonials[testimonialIdx].text}
+            </p>
+            <div className="flex items-center justify-between pt-[16px]">
+              <div>
+                <p className="font-grotesk font-bold text-[14px] text-grey-900">
+                  {testimonials[testimonialIdx].author}
+                </p>
+                <p className="font-grotesk font-light text-[12px] text-grey-600">
+                  {testimonials[testimonialIdx].role}
+                </p>
+              </div>
+              <div className="flex gap-[8px]">
+                <button
+                  onClick={() => setTestimonialIdx(Math.max(0, testimonialIdx - 1))}
+                  className="w-[32px] h-[32px] rounded-full border border-grey-300 flex items-center justify-center hover:bg-grey-100"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={() => setTestimonialIdx(Math.min(testimonials.length - 1, testimonialIdx + 1))}
+                  className="w-[32px] h-[32px] rounded-full border border-grey-300 flex items-center justify-center hover:bg-grey-100"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <Footer />
+    </div>
+  )
+}

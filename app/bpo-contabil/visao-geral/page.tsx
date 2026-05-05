@@ -67,11 +67,56 @@ export default function BPOVisaoGeral() {
       <section className="w-full flex justify-center pt-[210px] pb-[128px] relative overflow-hidden" style={{backgroundImage: 'url(/bg-visao-geral-bpo.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="absolute inset-0 bg-black/40" />
         <div className="w-full max-w-[1280px] px-[20px] flex flex-col gap-[40px] relative z-10">
-          <motion.div className="flex flex-col gap-[20px] max-w-[816px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="font-linear font-black text-[60px] leading-[61.6px] text-white">
-              Fechamento todo mês virando<br />
-              <span className="text-orange-500">correria?</span> <span className="text-orange-500">Isso não é inevitável.</span><br />
-              <span className="text-orange-500">É falta de método.</span>
+          <motion.div
+            className="flex flex-col gap-[20px] w-full"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+          >
+            <h1 className="font-grotesk font-semibold text-[60px] leading-[61.6px] text-white">
+              {['Fechamento', 'todo', 'mês', 'virando'].map((word, i) => (
+                <motion.span
+                  key={i}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  className="inline-block mr-2"
+                >
+                  {word}{' '}
+                </motion.span>
+              ))}
+              <br />
+              {['correria?', 'Isso', 'não', 'é', 'inevitável.'].map((word, i) => (
+                <motion.span
+                  key={`line2-${i}`}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  className="text-orange-500 inline-block mr-2"
+                >
+                  {word}{' '}
+                </motion.span>
+              ))}
+              <br />
+              <motion.span
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                className="text-orange-500 inline-block"
+              >
+                É falta de método.
+              </motion.span>
             </h1>
           </motion.div>
           <motion.div className="flex gap-[12px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>

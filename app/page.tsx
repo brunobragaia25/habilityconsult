@@ -304,6 +304,34 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* MARQUEE SECTION */}
+      <section className="w-full border-t border-b border-[#c8c8c8] bg-white overflow-hidden">
+        <div className="flex gap-[40px] items-center py-[28px] px-[20px] animate-marquee whitespace-nowrap">
+          {Array(10).fill(['ERP SANKHYA', 'BPO CONTÁBIL', 'HABILITY LABS']).flat().map((item, i) => (
+            <div key={i} className="flex gap-[40px] items-center shrink-0">
+              <p className="font-grotesk font-light text-[12px] text-[#a0a0a0] tracking-[1.32px] whitespace-nowrap uppercase">
+                {item}
+              </p>
+              <img src="/star-marquee.svg" alt="" className="w-[12px] h-[12px]" />
+            </div>
+          ))}
+        </div>
+        <style>{`
+          @keyframes marquee {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-100% / 2));
+            }
+          }
+          .animate-marquee {
+            animation: marquee 60s linear infinite;
+            width: 200%;
+          }
+        `}</style>
+      </section>
+
       {/* SERVICES HIGHLIGHT SECTION */}
       <section className="w-full flex justify-center pt-[80px] pb-[40px] px-[20px] bg-white">
         <div className="max-w-[1240px] w-full bg-white rounded-[28px] p-[40px] lg:p-[64px] shadow-lg">
