@@ -1,0 +1,44 @@
+<svg width="568" height="380" viewBox="0 0 568 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="568" height="380" rx="16" fill="#FABE9E"/>
+
+  <!-- White card background -->
+  <g filter="drop-shadow(0px 16.085px 31px rgba(241,90,41,0.2))">
+    <rect x="45" y="56" width="478" height="324" rx="18" fill="white"/>
+  </g>
+
+  <!-- Card header -->
+  <text x="90" y="100" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#F15A29">Recebimentos</text>
+  <text x="90" y="128" font-family="Inter, sans-serif" font-size="22" font-weight="600" fill="#111111">R$401.345,21</text>
+
+  <!-- Chart bars -->
+  <g>
+    <!-- Nov/25 -->
+    <rect x="90" y="240" width="24" height="91" rx="7" fill="#F15A29"/>
+    <rect x="120" y="285" width="24" height="46" rx="7" fill="#D9D9D9"/>
+    <text x="90" y="360" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#6E6E6E" text-anchor="start">Nov/25</text>
+
+    <!-- Dez/25 -->
+    <rect x="160" y="195" width="24" height="55" rx="7" fill="#F15A29"/>
+    <rect x="190" y="240" width="24" height="91" rx="7" fill="#D9D9D9"/>
+    <text x="160" y="360" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#6E6E6E" text-anchor="start">Dez/25</text>
+
+    <!-- Jan/26 -->
+    <rect x="230" y="210" width="24" height="71" rx="7" fill="#F15A29"/>
+    <rect x="260" y="166" width="24" height="108" rx="7" fill="#D9D9D9"/>
+    <text x="230" y="360" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#6E6E6E" text-anchor="start">Jan/26</text>
+
+    <!-- Fev/26 -->
+    <rect x="300" y="130" width="24" height="127" rx="7" fill="#F15A29"/>
+    <rect x="330" y="235" width="24" height="85" rx="7" fill="#D9D9D9"/>
+    <text x="300" y="360" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#6E6E6E" text-anchor="start">Fev/26</text>
+
+    <!-- Mar/26 -->
+    <rect x="370" y="155" width="24" height="102" rx="7" fill="#F15A29"/>
+    <rect x="400" y="290" width="24" height="60" rx="7" fill="#D9D9D9"/>
+    <text x="370" y="360" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#6E6E6E" text-anchor="start">Mar/26</text>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="65" y1="150" x2="520" y2="150" stroke="#E8E8E8" stroke-width="1"/>
+</svg>

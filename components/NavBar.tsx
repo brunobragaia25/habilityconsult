@@ -18,9 +18,6 @@ export default function NavBar({ transparent = false }: { transparent?: boolean 
   const [isHabilityLabsMenuOpen, setIsHabilityLabsMenuOpen] = useState(false)
   const [isAboutMenuOpen, setIsAboutMenuOpen] = useState(false)
   const [selectedHabilityTab, setSelectedHabilityTab] = useState('aplicativos')
-  const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const habilityMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const aboutMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,44 +28,37 @@ export default function NavBar({ transparent = false }: { transparent?: boolean 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleMenuLeave = () => {
-    menuTimeoutRef.current = setTimeout(() => {
-      setIsBPOMenuOpen(false)
-    }, 200)
+  const handleBPOMenuClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setIsBPOMenuOpen(!isBPOMenuOpen)
   }
 
-  const handleMenuEnter = () => {
-    if (menuTimeoutRef.current) {
-      clearTimeout(menuTimeoutRef.current)
+  const handleHabilityMenuClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setIsHabilityLabsMenuOpen(!isHabilityLabsMenuOpen)
+  }
+
+  const handleAboutMenuClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setIsAboutMenuOpen(!isAboutMenuOpen)
+  }
+
+  const closeAllMenus = () => {
+    setIsBPOMenuOpen(false)
+    setIsHabilityLabsMenuOpen(false)
+    setIsAboutMenuOpen(false)
+  }
+
+  useEffect(() => {
+    const handleClickOutside = () => {
+      closeAllMenus()
     }
-    setIsBPOMenuOpen(true)
-  }
 
-  const handleHabilityMenuLeave = () => {
-    habilityMenuTimeoutRef.current = setTimeout(() => {
-      setIsHabilityLabsMenuOpen(false)
-    }, 200)
-  }
-
-  const handleHabilityMenuEnter = () => {
-    if (habilityMenuTimeoutRef.current) {
-      clearTimeout(habilityMenuTimeoutRef.current)
+    if (isBPOMenuOpen || isHabilityLabsMenuOpen || isAboutMenuOpen) {
+      document.addEventListener('click', handleClickOutside)
+      return () => document.removeEventListener('click', handleClickOutside)
     }
-    setIsHabilityLabsMenuOpen(true)
-  }
-
-  const handleAboutMenuLeave = () => {
-    aboutMenuTimeoutRef.current = setTimeout(() => {
-      setIsAboutMenuOpen(false)
-    }, 200)
-  }
-
-  const handleAboutMenuEnter = () => {
-    if (aboutMenuTimeoutRef.current) {
-      clearTimeout(aboutMenuTimeoutRef.current)
-    }
-    setIsAboutMenuOpen(true)
-  }
+  }, [isBPOMenuOpen, isHabilityLabsMenuOpen, isAboutMenuOpen])
 
   const textColor = isScrolled ? 'text-grey-900' : 'text-white'
   const hoverColor = isScrolled ? 'hover:text-grey-700' : 'hover:text-grey-300'
@@ -116,8 +106,7 @@ export default function NavBar({ transparent = false }: { transparent?: boolean 
             {/* BPO Contábil */}
             <div
               className="relative shrink-0"
-              onMouseEnter={handleMenuEnter}
-              onMouseLeave={handleMenuLeave}
+              onClick={handleBPOMenuClick}
             >
               <div className="content-stretch flex gap-[6px] items-center cursor-pointer">
                 <p className={`font-grotesk font-normal leading-[1.43] relative shrink-0 text-[14px] whitespace-nowrap transition-colors ${textColor}`}>
@@ -130,8 +119,7 @@ export default function NavBar({ transparent = false }: { transparent?: boolean 
             {/* Hability Labs */}
             <div
               className="relative shrink-0"
-              onMouseEnter={handleHabilityMenuEnter}
-              onMouseLeave={handleHabilityMenuLeave}
+              onClick={handleHabilityMenuClick}
             >
               <div className="content-stretch flex gap-[6px] items-center cursor-pointer">
                 <p className={`font-grotesk font-normal leading-[1.43] relative shrink-0 text-[14px] whitespace-nowrap transition-colors ${textColor}`}>
@@ -149,8 +137,7 @@ export default function NavBar({ transparent = false }: { transparent?: boolean 
             {/* Sobre Nós */}
             <div
               className="relative shrink-0"
-              onMouseEnter={handleAboutMenuEnter}
-              onMouseLeave={handleAboutMenuLeave}
+              onClick={handleAboutMenuClick}
             >
               <div className="content-stretch flex gap-[6px] items-center cursor-pointer">
                 <p className={`font-grotesk font-normal leading-[1.43] relative shrink-0 text-[14px] whitespace-nowrap transition-colors ${textColor}`}>
@@ -203,14 +190,12 @@ export default function NavBar({ transparent = false }: { transparent?: boolean 
         {isBPOMenuOpen && (
           <motion.div
             key="bpo-dropdown"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-          className="relative z-50 mx-[20px] w-[calc(100%-40px)] bg-white backdrop-blur-lg border-t border-white/40 shadow-lg rounded-[20px]"
-          onMouseEnter={handleMenuEnter}
-          onMouseLeave={handleMenuLeave}
-        >
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="relative z-50 mx-[20px] w-[calc(100%-40px)] bg-white backdrop-blur-lg border-t border-white/40 shadow-lg rounded-[20px]"
+          >
           <div className="flex justify-center">
             <div className="w-full max-w-[1280px] px-[80px] py-[80px]">
               {/* First Row */}
@@ -295,8 +280,6 @@ export default function NavBar({ transparent = false }: { transparent?: boolean 
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
             className="relative z-50 mx-[20px] w-[calc(100%-40px)] bg-white backdrop-blur-lg border-t border-white/40 shadow-lg rounded-[20px]"
-            onMouseEnter={handleHabilityMenuEnter}
-            onMouseLeave={handleHabilityMenuLeave}
           >
             <div className="flex justify-center">
               <div className="w-full max-w-[1280px] px-[80px] py-[80px]">
@@ -409,8 +392,6 @@ export default function NavBar({ transparent = false }: { transparent?: boolean 
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
             className="relative z-50 mx-[20px] w-[calc(100%-40px)] bg-white backdrop-blur-lg border-t border-white/40 shadow-lg rounded-[20px]"
-            onMouseEnter={handleAboutMenuEnter}
-            onMouseLeave={handleAboutMenuLeave}
           >
             <div className="flex justify-center">
               <div className="w-full max-w-[1280px] px-[80px] py-[80px]">

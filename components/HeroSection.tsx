@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronRight } from 'lucide-react'
 
 export default function HeroSection() {
   const containerVariants = {
@@ -59,7 +58,7 @@ export default function HeroSection() {
               variants={itemVariants}
               className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 w-fit"
             >
-              <div className="w-6 h-6 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full" />
+              <img src="/astherisc-icon.svg" alt="" className="w-5 h-5" />
               <span className="text-xs font-bold text-grey-800 uppercase tracking-wider">
                 ERP SANKHYA • BPO CONTÁBIL • HABILITY LABS
               </span>
@@ -93,7 +92,7 @@ export default function HeroSection() {
               >
                 Ver Consultoria ERP
                 <div className="w-5 h-5 rounded bg-white flex items-center justify-center group-hover:bg-orange-200 transition-colors">
-                  <ChevronRight className="w-3 h-3 text-orange-500 -rotate-90" />
+                  <img src="/chevron-down-black.svg" alt="" className="w-3 h-3" />
                 </div>
               </motion.button>
 
@@ -104,7 +103,7 @@ export default function HeroSection() {
               >
                 Ver BPO Contábil
                 <div className="w-5 h-5 rounded bg-white flex items-center justify-center group-hover:bg-orange-200 transition-colors">
-                  <ChevronRight className="w-3 h-3 text-orange-500 -rotate-90" />
+                  <img src="/chevron-down-black.svg" alt="" className="w-3 h-3" />
                 </div>
               </motion.button>
 
@@ -115,7 +114,7 @@ export default function HeroSection() {
               >
                 Ver Hability Labs
                 <div className="w-5 h-5 rounded bg-orange-500 flex items-center justify-center">
-                  <ChevronRight className="w-3 h-3 text-white -rotate-90" />
+                  <img src="/chevron-down-white.svg" alt="" className="w-3 h-3" />
                 </div>
               </motion.button>
             </motion.div>

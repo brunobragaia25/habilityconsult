@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion'
 
 const ASSETS = {
-  footerLogo: 'https://www.figma.com/api/mcp/asset/d50d35c0-0134-4bcb-89a5-f71b2b7e7383',
-  footerArrowUp: 'https://www.figma.com/api/mcp/asset/fe47f790-ecb6-4d96-87df-b4aa51a83efe',
+  footerLogo: '/logo-hability-footer.svg',
+  footerArrowUp: '/arrow-top.svg',
   footerDevz: '/logo-devz.svg',
 }
 
@@ -32,9 +32,15 @@ export default function Footer() {
               <div className="flex items-center gap-[20px]">
                 <span className="font-grotesk font-medium text-[16px]">Siga nas redes</span>
                 <div className="flex gap-[12px]">
-                  <div className="bg-[#fde0d0] rounded-[8px] w-[28px] h-[28px]" />
-                  <div className="bg-[#fde0d0] rounded-[8px] w-[28px] h-[28px]" />
-                  <div className="bg-[#fde0d0] rounded-[8px] w-[28px] h-[28px]" />
+                  <div className="bg-[#fde0d0] rounded-[8px] w-[28px] h-[28px] flex items-center justify-center cursor-pointer hover:opacity-80">
+                    <img src="/instagram-icon.svg" alt="Instagram" className="w-[16px] h-[16px]" />
+                  </div>
+                  <div className="bg-[#fde0d0] rounded-[8px] w-[28px] h-[28px] flex items-center justify-center cursor-pointer hover:opacity-80">
+                    <img src="/linkedin-icon.svg" alt="LinkedIn" className="w-[16px] h-[16px]" />
+                  </div>
+                  <div className="bg-[#fde0d0] rounded-[8px] w-[28px] h-[28px] flex items-center justify-center cursor-pointer hover:opacity-80">
+                    <img src="/facebook-icon.svg" alt="Facebook" className="w-[16px] h-[16px]" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -141,10 +147,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Sankhya Disclaimer */}
-          <p className="font-grotesk font-light text-[12px] leading-[1.43] text-white/70 w-full">
-            Sankhya® é marca registrada de propriedade da Sankhya Gestão de Negócios. A HABILITY CONSULT TECNOLOGIA DA INFORMACAO LTDA é empresa de consultoria independente, sem vínculo com a Sankhya Gestão de Negócios.
-          </p>
         </div>
       </div>
 

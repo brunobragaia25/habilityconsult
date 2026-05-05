@@ -1,0 +1,88 @@
+<svg width="568" height="380" viewBox="0 0 568 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="568" height="380" rx="16" fill="#EF4136"/>
+
+  <!-- Fiscal column -->
+  <g filter="drop-shadow(0px 16.085px 31px rgba(241,90,41,0.2))">
+    <rect x="30" y="56" width="136" height="324" rx="18" fill="white"/>
+  </g>
+
+  <!-- Fiscal header -->
+  <line x1="30" y1="105" x2="166" y2="105" stroke="#F15A29" stroke-width="1"/>
+  <text x="98" y="85" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#F15A29" text-anchor="middle">Fiscal</text>
+
+  <!-- Fiscal items -->
+  <g>
+    <circle cx="50" cy="140" r="6" fill="#F15A29"/>
+    <line x1="62" y1="140" x2="145" y2="140" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+
+    <circle cx="50" cy="180" r="6" fill="#F15A29"/>
+    <line x1="62" y1="180" x2="145" y2="180" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+
+    <circle cx="50" cy="220" r="6" fill="#F15A29"/>
+    <line x1="62" y1="220" x2="145" y2="220" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+
+    <circle cx="50" cy="260" r="6" fill="#D9D9D9"/>
+    <line x1="62" y1="260" x2="145" y2="260" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+
+    <circle cx="50" cy="300" r="6" fill="#D9D9D9"/>
+    <line x1="62" y1="300" x2="145" y2="300" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+  </g>
+
+  <!-- Fiscal footer -->
+  <rect x="48" y="335" width="100" height="22" rx="10" fill="#FDE0D0"/>
+  <text x="98" y="350" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#A0A0A0" text-anchor="middle">Luiz F. - Responsável</text>
+
+  <!-- Contábil column -->
+  <g filter="drop-shadow(0px 16.085px 31px rgba(241,90,41,0.2))">
+    <rect x="190" y="56" width="136" height="324" rx="18" fill="white"/>
+  </g>
+
+  <!-- Contábil header -->
+  <line x1="190" y1="105" x2="326" y2="105" stroke="#F15A29" stroke-width="1"/>
+  <text x="258" y="85" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#F15A29" text-anchor="middle">Contábil</text>
+
+  <!-- Contábil items -->
+  <g>
+    <circle cx="210" cy="140" r="6" fill="#F15A29"/>
+    <line x1="222" y1="140" x2="305" y2="140" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+
+    <circle cx="210" cy="180" r="6" fill="#F15A29"/>
+    <line x1="222" y1="180" x2="305" y2="180" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+
+    <circle cx="210" cy="220" r="6" fill="#D9D9D9"/>
+    <line x1="222" y1="220" x2="305" y2="220" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+
+    <circle cx="210" cy="260" r="6" fill="#D9D9D9"/>
+    <line x1="222" y1="260" x2="305" y2="260" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+  </g>
+
+  <!-- Contábil footer -->
+  <rect x="208" y="335" width="100" height="22" rx="10" fill="#FDE0D0"/>
+  <text x="258" y="350" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#A0A0A0" text-anchor="middle">Pedro M. - Responsável</text>
+
+  <!-- Fiscal (right) column -->
+  <g filter="drop-shadow(0px 16.085px 31px rgba(241,90,41,0.2))">
+    <rect x="350" y="56" width="136" height="324" rx="18" fill="white"/>
+  </g>
+
+  <!-- Fiscal (right) header -->
+  <line x1="350" y1="105" x2="486" y2="105" stroke="#F15A29" stroke-width="1"/>
+  <text x="418" y="85" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#F15A29" text-anchor="middle">Fiscal</text>
+
+  <!-- Fiscal (right) items -->
+  <g>
+    <circle cx="370" cy="140" r="6" fill="#F15A29"/>
+    <line x1="382" y1="140" x2="465" y2="140" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+
+    <circle cx="370" cy="180" r="6" fill="#D9D9D9"/>
+    <line x1="382" y1="180" x2="465" y2="180" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+
+    <circle cx="370" cy="220" r="6" fill="#D9D9D9"/>
+    <line x1="382" y1="220" x2="465" y2="220" stroke="#D9D9D9" stroke-width="8" rx="4"/>
+  </g>
+
+  <!-- Fiscal (right) footer -->
+  <rect x="368" y="335" width="100" height="22" rx="10" fill="#FDE0D0"/>
+  <text x="418" y="350" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#A0A0A0" text-anchor="middle">Marcos A. - Responsável</text>
+</svg>

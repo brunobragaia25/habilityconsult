@@ -27,20 +27,19 @@ const ASSETS = {
   diferencialIcon1: 'https://www.figma.com/api/mcp/asset/08337a26-bb63-4ada-9e52-aa9ee36648ed',
   diferencialIcon2: 'https://www.figma.com/api/mcp/asset/9603684a-50ae-4cbd-95a7-ae93f4a39b8c',
   diferencialIcon3: 'https://www.figma.com/api/mcp/asset/af87ef60-274d-46ec-8ecf-e2a869f52a6b',
-  serviceCardBg1: 'https://www.figma.com/api/mcp/asset/953fd4df-91a1-4d7c-80ed-2abebac1d497',
-  serviceCardBg2: 'https://www.figma.com/api/mcp/asset/813d19d2-f9c8-40e0-b3b8-0440099c81c4',
-  serviceCardBg3: 'https://www.figma.com/api/mcp/asset/cdf3a804-b911-42af-92d5-24358b4f1ca5',
-  serviceCircle: 'https://www.figma.com/api/mcp/asset/11d66592-923d-4e6e-b822-a86bec626d10',
-  industriesIcon1: 'https://www.figma.com/api/mcp/asset/ea991d77-6c64-46e0-9bf7-8cdf6971b87c',
-  industriesIcon2: 'https://www.figma.com/api/mcp/asset/449c067a-3ad1-4e87-9e2d-fca79567e92f',
-  industriesIcon3: 'https://www.figma.com/api/mcp/asset/e149f4aa-10b3-49db-aea9-2653580dcb68',
+  serviceCardBg1: '/Consultoria-ERP-foto.png',
+  serviceCardBg2: '/BPO Completo-foto.png',
+  serviceCardBg3: '/Hability Labs-foto.png',
+  industriesIcon1: '/industrial-icon.svg',
+  industriesIcon2: '/distribuicao-icon.svg',
+  industriesIcon3: '/servicos-icon.svg',
   testimonialVector: 'https://www.figma.com/api/mcp/asset/36f3ca0b-dd39-47ee-97c9-62eb1e4fd244',
-  testimonialQuoteStart: 'https://www.figma.com/api/mcp/asset/2b8818af-5e31-4b6e-9798-be11ddfa616e',
-  testimonialQuoteEnd: 'https://www.figma.com/api/mcp/asset/61371d07-38a2-447f-8df5-711ee270de1d',
-  testimonialDecor: 'https://www.figma.com/api/mcp/asset/d2f99afb-eb97-4b5e-9fb0-f40d0b354783',
+  testimonialQuoteStart: '/aspas-icon.svg',
+  testimonialQuoteEnd: '/aspas-2-icon.svg',
+  testimonialDecor: '/circle-infinite-hability.svg',
   processVector: 'https://www.figma.com/api/mcp/asset/bc8d7c74-410c-4ebb-9b84-e2c22e6482e5',
   resultsSeparator: 'https://www.figma.com/api/mcp/asset/534f9b7d-7af2-45dc-a75a-f387cd563b40',
-  resultsCheckmark: 'https://www.figma.com/api/mcp/asset/1a93fc0b-76a3-4eaa-8943-bdd62bbc7e28',
+  resultsCheckmark: '/check-check.svg',
   ctaImage: 'https://www.figma.com/api/mcp/asset/fcae2887-1122-4e35-9197-80ddd7c59dbf',
   footerLogo: 'https://www.figma.com/api/mcp/asset/d50d35c0-0134-4bcb-89a5-f71b2b7e7383',
   footerArrowUp: 'https://www.figma.com/api/mcp/asset/fe47f790-ecb6-4d96-87df-b4aa51a83efe',
@@ -50,10 +49,10 @@ const ASSETS = {
   footerDevz: '/logo-devz.svg',
   servicesEllipse: 'https://www.figma.com/api/mcp/asset/23c21ef0-2c42-4648-a457-d40334ea861a',
   servicesLineShort: 'https://www.figma.com/api/mcp/asset/f9dbf94c-5808-4ca7-a78a-ce29b999c950',
-  servicesIcon1: 'https://www.figma.com/api/mcp/asset/86dd293c-cf99-4bff-9583-acdc943a6e9b',
+  servicesIcon1: '/dashboard.svg',
   servicesLineLong: 'https://www.figma.com/api/mcp/asset/d2f10918-94ce-4689-ac51-eb58cd53a801',
-  servicesIcon2: 'https://www.figma.com/api/mcp/asset/f46555ac-a0da-4d5e-991c-ae844207f45a',
-  servicesIcon3: 'https://www.figma.com/api/mcp/asset/8d0c6638-cd87-4a08-b75c-157a5b259bbb',
+  servicesIcon2: '/calendar.svg',
+  servicesIcon3: '/timer-30.svg',
 }
 
 export default function Home() {
@@ -77,19 +76,23 @@ export default function Home() {
   const processSteps = [
     {
       title: 'Triagem (30 min)',
-      desc: 'Entendemos objetivo, criticidade, módulos ou rotinas afetados e prazos. Você sai com um próximo passo claro.'
+      desc: 'Entendemos objetivo, criticidade, módulos ou rotinas afetados e prazos. Você sai com um próximo passo claro.',
+      icon: '/clock-fading.svg'
     },
     {
       title: 'Diagnóstico',
-      desc: 'Análise profunda das dores atuais e mapeamento de oportunidades.'
+      desc: 'Análise profunda das dores atuais e mapeamento de oportunidades.',
+      icon: '/microscope.svg'
     },
     {
       title: 'Plano Priorizado',
-      desc: 'Roadmap claro com prioridades, impacto e prazos.'
+      desc: 'Roadmap claro com prioridades, impacto e prazos.',
+      icon: '/diamond-plus.svg'
     },
     {
       title: 'Execução com rastreabilidade',
-      desc: 'Implementação com governança total e entrega de valor incremental.'
+      desc: 'Implementação com governança total e entrega de valor incremental.',
+      icon: '/circle-check.svg'
     }
   ]
 
@@ -131,7 +134,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="inline-flex items-center gap-1.5 bg-white rounded-full px-4 py-1 w-fit"
             >
-              <img alt="" src={ASSETS.frame} className="w-6 h-6" />
+              <img alt="" src="/astherisc-icon.svg" className="w-6 h-6" />
               <span className="text-xs font-grotesk font-medium text-grey-800 uppercase tracking-[1.32px]">
                 ERP SANKHYA • BPO CONTÁBIL • HABILITY LABS
               </span>
@@ -398,9 +401,8 @@ export default function Home() {
                 </div>
 
                 {/* Number Circle */}
-                <div className="relative w-[64px] h-[64px] z-10 flex items-center justify-center">
-                  <img alt="" className="absolute inset-0 block max-w-none w-full h-full" src={ASSETS.serviceCircle} />
-                  <p className="font-grotesk font-medium text-orange-300 text-[28px] text-center whitespace-nowrap relative z-10">
+                <div className="relative w-[64px] h-[64px] z-10 flex items-center justify-center bg-white rounded-full">
+                  <p className="font-grotesk font-medium text-orange-500 text-[28px] text-center whitespace-nowrap">
                     01
                   </p>
                 </div>
@@ -452,9 +454,8 @@ export default function Home() {
                 </div>
 
                 {/* Number Circle */}
-                <div className="relative w-[64px] h-[64px] z-10 flex items-center justify-center">
-                  <img alt="" className="absolute inset-0 block max-w-none w-full h-full" src={ASSETS.serviceCircle} />
-                  <p className="font-grotesk font-medium text-orange-300 text-[28px] text-center whitespace-nowrap relative z-10">
+                <div className="relative w-[64px] h-[64px] z-10 flex items-center justify-center bg-white rounded-full">
+                  <p className="font-grotesk font-medium text-orange-500 text-[28px] text-center whitespace-nowrap">
                     02
                   </p>
                 </div>
@@ -506,9 +507,8 @@ export default function Home() {
                 </div>
 
                 {/* Number Circle */}
-                <div className="relative w-[64px] h-[64px] z-10 flex items-center justify-center">
-                  <img alt="" className="absolute inset-0 block max-w-none w-full h-full" src={ASSETS.serviceCircle} />
-                  <p className="font-grotesk font-medium text-orange-300 text-[28px] text-center whitespace-nowrap relative z-10">
+                <div className="relative w-[64px] h-[64px] z-10 flex items-center justify-center bg-white rounded-full">
+                  <p className="font-grotesk font-medium text-orange-500 text-[28px] text-center whitespace-nowrap">
                     03
                   </p>
                 </div>
@@ -842,10 +842,12 @@ export default function Home() {
                   >
                     <div className="flex gap-[12px] items-center">
                       <div
-                        className={`w-[45px] h-[45px] rounded-[8px] flex-shrink-0 ${
+                        className={`w-[45px] h-[45px] rounded-[8px] flex-shrink-0 flex items-center justify-center ${
                           expandedProcess === idx ? 'bg-white' : 'bg-[#d9d9d9]'
                         }`}
-                      />
+                      >
+                        <img src={step.icon} alt="" className="w-[24px] h-[24px]" />
+                      </div>
                       <p
                         className={`font-grotesk font-bold text-[16px] leading-[1.5] whitespace-nowrap ${
                           expandedProcess === idx ? 'text-[#ef4136]' : 'text-grey-800'
@@ -914,7 +916,9 @@ export default function Home() {
                     'Mais confiança nos números para tomada de decisão'
                   ].map((item, idx) => (
                     <div key={idx} className="flex gap-[10px] items-start">
-                      <img src={ASSETS.resultsCheckmark} alt="" className="w-[16px] h-[16px] flex-shrink-0 mt-[2px]" />
+                      <div className="w-[16px] h-[16px] rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0">
+                        <img src={ASSETS.resultsCheckmark} alt="" className="w-[10px] h-[10px]" />
+                      </div>
                       <p className="font-grotesk font-medium text-[16px] leading-[1.5] text-grey-900">
                         {item}
                       </p>
@@ -939,7 +943,9 @@ export default function Home() {
                     'Time interno menos sobrecarregado, mais foco em evolução'
                   ].map((item, idx) => (
                     <div key={idx} className="flex gap-[10px] items-start">
-                      <img src={ASSETS.resultsCheckmark} alt="" className="w-[16px] h-[16px] flex-shrink-0 mt-[2px]" />
+                      <div className="w-[16px] h-[16px] rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0">
+                        <img src={ASSETS.resultsCheckmark} alt="" className="w-[10px] h-[10px]" />
+                      </div>
                       <p className="font-grotesk font-medium text-[16px] leading-[1.5] text-grey-900">
                         {item}
                       </p>
