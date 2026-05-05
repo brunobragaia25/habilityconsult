@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { ChevronDown, ChevronUp, ChevronRight, ChevronLeft, User } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 
@@ -19,10 +20,10 @@ const ASSETS = {
   chevronDown: 'https://www.figma.com/api/mcp/asset/5c9fc620-ed5c-4fb3-b793-8fdf20555e10',
   chevronDown1: 'https://www.figma.com/api/mcp/asset/5e9802cd-9ac0-41d8-9546-123618eb3dc8',
   chevronDown2: 'https://www.figma.com/api/mcp/asset/2563b303-9ad5-4742-8f85-af8b98ec8498',
-  frame148: 'https://www.figma.com/api/mcp/asset/b8082769-f3b8-4e7a-95fa-37346590ca24',
-  frame149: 'https://www.figma.com/api/mcp/asset/c7f94eb5-f318-4c83-9f2c-5b12eb38832d',
-  frame150: 'https://www.figma.com/api/mcp/asset/b95b1012-9a03-463e-869d-2a8be4bc5726',
-  frame151: 'https://www.figma.com/api/mcp/asset/e21eccec-6b97-4e6e-a7e7-a4ee966c49d0',
+  frame148: '/foto-01.png',
+  frame149: '/foto-02.png',
+  frame150: '/foto-03.png',
+  frame151: '/foto-04.png',
   frame8: 'https://www.figma.com/api/mcp/asset/00a0fdbd-6f2c-4725-8cda-f6d729948544',
   frame9: 'https://www.figma.com/api/mcp/asset/e657a955-0c8d-4b37-95a7-67e74b3db1eb',
   diferencialIcon1: 'https://www.figma.com/api/mcp/asset/08337a26-bb63-4ada-9e52-aa9ee36648ed',
@@ -57,9 +58,11 @@ const ASSETS = {
 }
 
 export default function Home() {
+  const router = useRouter()
   const [testimonialIdx, setTestimonialIdx] = useState(0)
   const [expandedProcess, setExpandedProcess] = useState(0)
   const [hoveredCard, setHoveredCard] = useState<number | null>(0)
+  const [clientCount, setClientCount] = useState(0)
 
   const testimonials = [
     {
@@ -96,6 +99,16 @@ export default function Home() {
       icon: '/circle-check.svg'
     }
   ]
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout
+    if (clientCount < 100) {
+      interval = setInterval(() => {
+        setClientCount(prev => Math.min(prev + 2, 100))
+      }, 30)
+    }
+    return () => clearInterval(interval)
+  }, [clientCount])
 
   return (
     <div className="bg-white w-full">
@@ -143,22 +156,74 @@ export default function Home() {
 
             {/* Headline */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2,
+                  },
+                },
+              }}
               className="space-y-6"
             >
               <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight font-grotesk w-full max-w-2xl">
-                ERP travado. Fechamento atrasado. O problema tem nome{' '}
-                <span style={{ color: '#fabe9e' }} className="font-bold">
+                {['ERP', 'travado.', 'Fechamento', 'atrasado.', 'O', 'problema', 'tem', 'nome'].map((word, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    className="inline-block mr-2"
+                  >
+                    {word}{' '}
+                  </motion.span>
+                ))}
+                <motion.span
+                  style={{ color: '#fabe9e' }}
+                  className="font-bold inline-block"
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                >
                   — e tem solução.
-                </span>
+                </motion.span>
               </h1>
 
               {/* Description */}
-              <p className="text-base lg:text-lg text-white leading-relaxed max-w-2xl font-grotesk font-light">
-                ERP e contabilidade desalinhados geram retrabalho, fechamentos caóticos e decisões cegas. A Hability resolve nas duas frentes: Consultoria ERP Sankhya (compras, vendas, financeiro, produção, WMS e integrações) e BPO Contábil completo — com processo, governança e rastreabilidade.
-              </p>
+              <motion.p
+                className="text-base lg:text-lg text-white leading-relaxed max-w-2xl font-grotesk font-light"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.05,
+                      delayChildren: 0.9,
+                    },
+                  },
+                }}
+              >
+                {['ERP', 'e', 'contabilidade', 'desalinhados', 'geram', 'retrabalho,', 'fechamentos', 'caóticos', 'e', 'decisões', 'cegas.', 'A', 'Hability', 'resolve', 'nas', 'duas', 'frentes:', 'Consultoria', 'ERP', 'Sankhya', '(compras,', 'vendas,', 'financeiro,', 'produção,', 'WMS', 'e', 'integrações)', 'e', 'BPO', 'Contábil', 'completo', '—', 'com', 'processo,', 'governança', 'e', 'rastreabilidade.'].map((word, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, y: 5 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    className="inline-block mr-1"
+                  >
+                    {word}{' '}
+                  </motion.span>
+                ))}
+              </motion.p>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -182,6 +247,7 @@ export default function Home() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => router.push('/bpo-contabil/visao-geral')}
                 style={{ backgroundColor: '#f37c4a' }}
                 className="text-white font-grotesk font-light text-sm px-3 py-3 rounded-lg flex items-center gap-2.5"
               >
@@ -212,29 +278,25 @@ export default function Home() {
               className="flex items-center gap-3 pt-4"
             >
               <div className="flex items-center pr-4">
-                <img
-                  alt=""
-                  src={ASSETS.frame148}
-                  className="w-11 h-11 rounded-full border-2 border-white"
+                <div
+                  className="w-11 h-11 rounded-full border-2 border-white bg-cover bg-center"
+                  style={{ backgroundImage: `url(${ASSETS.frame148})` }}
                 />
-                <img
-                  alt=""
-                  src={ASSETS.frame149}
-                  className="w-11 h-11 rounded-full border-2 border-white -ml-4"
+                <div
+                  className="w-11 h-11 rounded-full border-2 border-white -ml-4 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${ASSETS.frame149})` }}
                 />
-                <img
-                  alt=""
-                  src={ASSETS.frame150}
-                  className="w-11 h-11 rounded-full border-2 border-white -ml-4"
+                <div
+                  className="w-11 h-11 rounded-full border-2 border-white -ml-4 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${ASSETS.frame150})` }}
                 />
-                <img
-                  alt=""
-                  src={ASSETS.frame151}
-                  className="w-11 h-11 rounded-full border-2 border-white -ml-4"
+                <div
+                  className="w-11 h-11 rounded-full border-2 border-white -ml-4 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${ASSETS.frame151})` }}
                 />
               </div>
               <div>
-                <p className="font-bold text-white text-sm font-grotesk">+ de 100 clientes</p>
+                <p className="font-bold text-white text-sm font-grotesk">+ de {clientCount} clientes</p>
                 <p className="text-white text-xs font-grotesk font-light">atendidos em todo Brasil</p>
               </div>
             </motion.div>
