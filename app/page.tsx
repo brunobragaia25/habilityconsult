@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ChevronDown, ChevronUp, ChevronRight, ChevronLeft, User } from 'lucide-react'
 import { useState } from 'react'
 import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 
 // All Figma Assets
 const ASSETS = {
@@ -959,203 +960,61 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="w-full flex justify-center py-[40px] px-[20px] bg-white pt-[80px] pb-[80px]">
-        <div className="relative w-full max-w-[1240px] bg-[#fef2ec] rounded-[28px] p-[12px] overflow-hidden">
-          <div className="bg-gradient-to-r from-orange-500 via-[#fabe9e] to-orange-500 rounded-[16px] px-[80px] py-[60px] min-h-[458px] flex flex-col justify-center relative">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex flex-col gap-[28px] max-w-[488px]"
-            >
-              <h2 className="font-grotesk font-light text-[36px] leading-[1.1] text-white">
-                Sua operação tem um gargalo que{' '}
-                <span className="font-bold">você já sabe que existe.</span>
-              </h2>
-              <p className="font-grotesk font-medium text-[16px] leading-[1.5] text-white max-w-[385px]">
-                O primeiro passo é uma conversa de 30 minutos com quem entende ERP e contabilidade de verdade.
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-grey-900 font-grotesk font-medium text-[16px] px-[20px] py-[8px] rounded-full w-fit hover:bg-grey-50 transition-colors"
+      <section className="w-full flex justify-center py-[40px] px-[20px] bg-white pt-[80px] pb-[80px] mt-[40px]">
+        <div className="w-full max-w-[1240px]">
+          <div className="bg-[#fef2ec] rounded-[28px] p-[12px]">
+            <motion.div className="bg-gradient-to-r from-[#f15a29] via-[#fabe9e] to-[#f15a29] rounded-[16px] relative px-[80px] py-[60px] h-[367px] flex items-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
+              {/* Pattern Background */}
+              <img
+                src="/pattern-bolinhas.png"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover rounded-[16px] pointer-events-none"
+              />
+
+              {/* Content */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="relative z-10 flex flex-col gap-[28px] max-w-[488px]"
               >
-                Fale com um especialista
-              </motion.button>
+                <h2 className="font-grotesk font-light text-[36px] leading-[1.1] text-white">
+                  Sua operação tem um gargalo que{' '}
+                  <span className="font-bold">você já sabe que existe.</span>
+                </h2>
+                <p className="font-grotesk font-medium text-[16px] leading-[1.5] text-white" style={{ maxWidth: '385.42px' }}>
+                  O primeiro passo é uma conversa de 30 minutos com quem entende ERP e contabilidade de verdade.
+                </p>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white text-grey-900 font-grotesk font-medium text-[16px] px-[20px] py-[8px] rounded-full w-fit hover:bg-grey-50 transition-colors"
+                >
+                  Fale com um especialista
+                </motion.button>
+              </motion.div>
+
+              {/* Image - Absolute */}
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="absolute right-[80px] -top-[91px] h-[458px] w-[490px] rounded-r-[16px] z-10"
+              >
+                <img
+                  src="/mulher-CTA.png"
+                  alt="Especialista"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </motion.div>
           </div>
-
-          {/* Image - Absolute Overlay */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="absolute h-[458px] overflow-hidden pointer-events-none z-20"
-            style={{ right: '0', top: '0' }}
-          >
-            <div className="absolute inset-0 overflow-hidden">
-              <img
-                src={ASSETS.ctaImage}
-                alt="Especialista"
-                style={{ width: '147.13%', height: '157.72%', left: '-22.99%', top: '-2.77%' }}
-                className="absolute"
-              />
-            </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#ac3314] text-white">
-        {/* Main Footer Content */}
-        <div className="w-full flex justify-center py-[80px] px-[20px]">
-          <div className="max-w-[1280px] w-full flex flex-col gap-[60px]">
-            {/* Top Section - Logo and Actions */}
-            <div className="flex items-center justify-between w-full">
-              <img src={ASSETS.footerLogo} alt="Hability" className="h-[60px] w-[190px] object-contain" />
-              <div className="flex items-center gap-[40px]">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className="flex gap-[12px] items-center text-white hover:opacity-80 transition-opacity"
-                >
-                  <span className="font-grotesk font-medium text-[16px]">Voltar ao topo</span>
-                  <img src={ASSETS.footerArrowUp} alt="" className="w-[28px] h-[28px]" />
-                </motion.button>
-
-                <div className="w-px h-[29px] bg-white/30" />
-
-                <div className="flex items-center gap-[20px]">
-                  <span className="font-grotesk font-medium text-[16px]">Siga nas redes</span>
-                  <div className="flex gap-[12px]">
-                    <div className="bg-[#fde0d0] rounded-[8px] w-[28px] h-[28px]" />
-                    <div className="bg-[#fde0d0] rounded-[8px] w-[28px] h-[28px]" />
-                    <div className="bg-[#fde0d0] rounded-[8px] w-[28px] h-[28px]" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Separator */}
-            <div className="w-full border-t border-white/20" />
-
-            {/* Links Section */}
-            <div className="grid grid-cols-5 gap-[20px] w-full">
-              {/* Institucional */}
-              <div className="flex flex-col gap-[40px]">
-                <h4 className="font-grotesk font-medium text-[20px] leading-[1.5] text-[#f6986c]">
-                  Institucional
-                </h4>
-                <div className="flex flex-col gap-[20px]">
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    Quem somos
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    Trabalhe Conosco
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    LGPD e Privacidade
-                  </p>
-                </div>
-              </div>
-
-              {/* Soluções */}
-              <div className="flex flex-col gap-[40px]">
-                <h4 className="font-grotesk font-medium text-[20px] leading-[1.5] text-[#f6986c]">
-                  Soluções
-                </h4>
-                <div className="flex flex-col gap-[20px]">
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    Consultoria ERP Sankhya
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    BPO Contábil Completo
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    Hability Labs
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    Reforma Tributária 2026
-                  </p>
-                </div>
-              </div>
-
-              {/* Aplicativos */}
-              <div className="flex flex-col gap-[40px]">
-                <h4 className="font-grotesk font-medium text-[20px] leading-[1.5] text-[#f6986c]">
-                  Aplicativos
-                </h4>
-                <div className="flex flex-col gap-[20px]">
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    App Conferência
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    App Inventário
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    App Produção
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    App Força de Vendas
-                  </p>
-                </div>
-              </div>
-
-              {/* Whatsapp + Sankhya */}
-              <div className="flex flex-col gap-[40px]">
-                <h4 className="font-grotesk font-medium text-[20px] leading-[1.5] text-[#f6986c]">
-                  Whatsapp + Sankhya
-                </h4>
-                <div className="flex flex-col gap-[20px]">
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    PowerWhats
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    PowerChats
-                  </p>
-                </div>
-              </div>
-
-              {/* Contato */}
-              <div className="flex flex-col gap-[40px]">
-                <h4 className="font-grotesk font-medium text-[20px] leading-[1.5] text-[#f6986c]">
-                  Contato
-                </h4>
-                <div className="flex flex-col gap-[20px]">
-                  <div>
-                    <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white">
-                      comercial<br />@habilityconsult.com.br
-                    </p>
-                  </div>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    +55 11 99999 9999
-                  </p>
-                  <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white cursor-pointer hover:opacity-80">
-                    +55 11 99999 9999
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Footer */}
-        <div className="border-t border-white/20">
-          <div className="w-full flex justify-center py-[16px] px-[20px] bg-[#ac3314]">
-            <div className="max-w-[1280px] w-full flex items-center justify-between">
-              <p className="font-grotesk font-light text-[16px] leading-[1.43] text-white">
-                © 2026 Hability Consult. Todos os direitos reservados.
-              </p>
-              <div className="flex items-center gap-[12px]">
-                <span className="font-grotesk font-light text-[14px] leading-[1.43] text-white">Desenvolvido por</span>
-                <img src={ASSETS.footerDevz} alt="DEVZ" className="h-[18px] w-auto object-contain" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
