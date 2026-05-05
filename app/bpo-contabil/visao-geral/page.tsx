@@ -255,7 +255,9 @@ export default function BPOVisaoGeral() {
               <div className="flex flex-col gap-[16px]">
                 {['Fechamento com trilha de ajustes', 'Comparativos (mês a mês / orçamento)', 'Pontos de atenção e recomendações'].map((item, idx) => (
                   <motion.div key={idx} className="flex gap-[10px] items-center" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: idx * 0.1 }} viewport={{ once: true }}>
-                    <img src={ASSETS.checkmark} alt="" className="w-4 h-4" />
+                    <div className="w-[16px] h-[16px] rounded-full bg-orange-500 flex items-center justify-center shrink-0">
+                      <img src="/check-check.svg" alt="" className="w-[10px] h-[10px]" />
+                    </div>
                     <p className="font-grotesk font-medium text-[16px] text-black">{item}</p>
                   </motion.div>
                 ))}
@@ -275,7 +277,9 @@ export default function BPOVisaoGeral() {
               <div className="flex flex-col gap-[16px]">
                 {['Regras e cadastros consistentes', 'Dimensões (centro de custo, projeto, filial)', 'Rotina estável para atualização'].map((item, idx) => (
                   <motion.div key={idx} className="flex gap-[10px] items-center" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: idx * 0.1 }} viewport={{ once: true }}>
-                    <img src={ASSETS.checkmark} alt="" className="w-4 h-4" />
+                    <div className="w-[16px] h-[16px] rounded-full bg-orange-500 flex items-center justify-center shrink-0">
+                      <img src="/check-check.svg" alt="" className="w-[10px] h-[10px]" />
+                    </div>
                     <p className="font-grotesk font-medium text-[16px] text-black">{item}</p>
                   </motion.div>
                 ))}
@@ -553,7 +557,11 @@ export default function BPOVisaoGeral() {
                   <div className="flex flex-col gap-[16px]">
                     {card.items.map((item, i) => (
                       <div key={i} className="flex gap-[16px] items-center">
-                        <img src={ASSETS.checkmarkWhite} alt="" className="w-4 h-4" />
+                        <div className="w-[16px] h-[16px] rounded-full bg-white flex items-center justify-center shrink-0">
+                          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F15A29" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </div>
                         <p className="font-grotesk font-normal text-[14px]">{item}</p>
                       </div>
                     ))}
