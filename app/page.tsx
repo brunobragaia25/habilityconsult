@@ -175,7 +175,7 @@ export default function Home() {
               >
                 Ver Consultoria ERP
                 <div className="bg-white rounded w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <img alt="" src={ASSETS.chevronDown} className="w-4 h-4 -rotate-90" />
+                  <img alt="" src="/chevron-down-white.svg" className="w-4 h-4" />
                 </div>
               </motion.button>
 
@@ -187,7 +187,7 @@ export default function Home() {
               >
                 Ver BPO Contábil
                 <div className="bg-white rounded w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <img alt="" src={ASSETS.chevronDown1} className="w-4 h-4 -rotate-90" />
+                  <img alt="" src="/chevron-down-white.svg" className="w-4 h-4" />
                 </div>
               </motion.button>
 
@@ -199,7 +199,7 @@ export default function Home() {
               >
                 Ver Hability Labs
                 <div style={{ backgroundColor: '#f15a29' }} className="rounded w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  <img alt="" src={ASSETS.chevronDown2} className="w-4 h-4 -rotate-90" />
+                  <img alt="" src="/chevron-down-white.svg" className="w-4 h-4" />
                 </div>
               </motion.button>
             </motion.div>
@@ -424,15 +424,17 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex gap-[12px] items-start">
-                    <button className="bg-orange-500 border border-orange-300 border-solid flex flex-col gap-[20px] items-start justify-center px-[20px] py-[12px] rounded-[8px]">
+                    <button className="bg-orange-500 border border-orange-300 border-solid flex gap-[12px] items-center justify-center px-[20px] py-[12px] rounded-[8px]">
                       <p className="font-grotesk font-medium leading-[1.5] text-[14px] text-center text-white whitespace-nowrap">
                         Ver mais
                       </p>
+                      <img src="/chevron-down-white.svg" alt="" className="w-[16px] h-[16px] -rotate-90" />
                     </button>
-                    <button className="border border-white border-solid flex flex-col gap-[20px] items-start justify-center px-[20px] py-[12px] rounded-[8px]">
+                    <button className="border border-white border-solid flex gap-[12px] items-center justify-center px-[20px] py-[12px] rounded-[8px]">
                       <p className="font-grotesk font-medium leading-[1.5] text-[14px] text-center text-white whitespace-nowrap">
                         Solicitar diagnóstico
                       </p>
+                      <img src="/chevron-down-white.svg" alt="" className="w-[16px] h-[16px] -rotate-90" />
                     </button>
                   </div>
                 </motion.div>
@@ -477,15 +479,17 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex gap-[12px] items-start">
-                    <button className="bg-orange-500 border border-orange-300 border-solid flex flex-col gap-[20px] items-start justify-center px-[20px] py-[12px] rounded-[8px]">
+                    <button className="bg-orange-500 border border-orange-300 border-solid flex gap-[12px] items-center justify-center px-[20px] py-[12px] rounded-[8px]">
                       <p className="font-grotesk font-medium leading-[1.5] text-[14px] text-center text-white whitespace-nowrap">
                         Ver mais
                       </p>
+                      <img src="/chevron-down-white.svg" alt="" className="w-[16px] h-[16px] -rotate-90" />
                     </button>
-                    <button className="border border-white border-solid flex flex-col gap-[20px] items-start justify-center px-[20px] py-[12px] rounded-[8px]">
+                    <button className="border border-white border-solid flex gap-[12px] items-center justify-center px-[20px] py-[12px] rounded-[8px]">
                       <p className="font-grotesk font-medium leading-[1.5] text-[14px] text-center text-white whitespace-nowrap">
                         Solicitar diagnóstico
                       </p>
+                      <img src="/chevron-down-white.svg" alt="" className="w-[16px] h-[16px] -rotate-90" />
                     </button>
                   </div>
                 </motion.div>
@@ -530,15 +534,17 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex gap-[12px] items-start">
-                    <button className="bg-orange-500 border border-orange-300 border-solid flex flex-col gap-[20px] items-start justify-center px-[20px] py-[12px] rounded-[8px]">
+                    <button className="bg-orange-500 border border-orange-300 border-solid flex gap-[12px] items-center justify-center px-[20px] py-[12px] rounded-[8px]">
                       <p className="font-grotesk font-medium leading-[1.5] text-[14px] text-center text-white whitespace-nowrap">
                         Ver mais
                       </p>
+                      <img src="/chevron-down-white.svg" alt="" className="w-[16px] h-[16px] -rotate-90" />
                     </button>
-                    <button className="border border-white border-solid flex flex-col gap-[20px] items-start justify-center px-[20px] py-[12px] rounded-[8px]">
+                    <button className="border border-white border-solid flex gap-[12px] items-center justify-center px-[20px] py-[12px] rounded-[8px]">
                       <p className="font-grotesk font-medium leading-[1.5] text-[14px] text-center text-white whitespace-nowrap">
                         Solicitar diagnóstico
                       </p>
+                      <img src="/chevron-down-white.svg" alt="" className="w-[16px] h-[16px] -rotate-90" />
                     </button>
                   </div>
                 </motion.div>
