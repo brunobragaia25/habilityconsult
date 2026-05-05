@@ -30,16 +30,22 @@ export default function NavBar({ transparent = false }: { transparent?: boolean 
 
   const handleBPOMenuClick = (e: React.MouseEvent) => {
     e.stopPropagation()
+    setIsHabilityLabsMenuOpen(false)
+    setIsAboutMenuOpen(false)
     setIsBPOMenuOpen(!isBPOMenuOpen)
   }
 
   const handleHabilityMenuClick = (e: React.MouseEvent) => {
     e.stopPropagation()
+    setIsBPOMenuOpen(false)
+    setIsAboutMenuOpen(false)
     setIsHabilityLabsMenuOpen(!isHabilityLabsMenuOpen)
   }
 
   const handleAboutMenuClick = (e: React.MouseEvent) => {
     e.stopPropagation()
+    setIsBPOMenuOpen(false)
+    setIsHabilityLabsMenuOpen(false)
     setIsAboutMenuOpen(!isAboutMenuOpen)
   }
 
